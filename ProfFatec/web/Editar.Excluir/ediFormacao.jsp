@@ -3,15 +3,74 @@
     Created on : 21 de abr. de 2023, 19:15:15
     Author     : mathe
 --%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="com.mysql.jdbc.Driver"%>
+<%@ page import="config.Conexao"%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+Statement st = null;
+ResultSet rs = null;
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Editar Formação</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Editar Formação</h1>
+        <%
+            String valorFormacao = null;
+             if(request.getParameter("funcao")!=null && request.getParameter("funcao").equals("editar")){
+            String valorID = request.getParameter("id");
+            st = new Conexao().conectar().createStatement();
+            try{
+                rs = st.executeQuery("Select * from tbformacao where codformacao='"+ valorID +"'");
+                while(rs.next()){
+                    valorFormacao = rs.getString(2);
+                }
+            }catch(Exception e){
+                out.println(e);
+            }
+          }
+          %>
+          
+          <form action="" method="post" id="editar">
+        <div class="form-group text-center">
+        <label class="text-light">Formação:</label><br>
+        <input class="form-control mx-auto" Style="width: 300px;" type="text" name="txtformacao" value="<%=valorFormacao %>"><br>
+        </div>
+        <br>
+        <div class="form-group text-center">
+        <input class="form-control mx-auto" Style="width: 300px;" type="submit" name="btnAtualizar" value="Atualizar">
+        </div>
+    </form>
+    <br>
+    <div class="text-center">
+        <button type="button" class="btn btn-light">
+        <a class="text-dark" href="listEsp.jsp">Voltar</a>
+        </button>
+        </div>
+            
     </body>
 </html>
+
+<% 
+    
+    if(request.getParameter("btnAtualizar")!=null){
+        String id = request.getParameter("id");
+        String formacao = request.getParameter("txtformacao");
+        try{
+            st = new Conexao().conectar().createStatement();
+            st.executeUpdate("Update tbformacao set Formacao='" + formacao + "'where codformacao='" + id + "'");
+            out.println("<meta http-equiv='refresh' content='0;URL=listEsp.jsp'>");
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Formação atualizado com sucesso');");
+            out.println("</script>");
+        }catch(Exception e){
+            out.println(e);
+        }
+    }
+%>
+

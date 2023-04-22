@@ -31,7 +31,7 @@
                 <div class="col">
 
                     <a href="../index.jsp">Voltar para página Principal</a>
-
+                    <br><br>
                     <div class="card border-secondary mb-3">
                         <div class="card-header">
 

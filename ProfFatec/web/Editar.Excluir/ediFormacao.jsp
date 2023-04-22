@@ -49,15 +49,15 @@ ResultSet rs = null;
         <label class="text-light">Formação:</label><br>
         <input class="form-control mx-auto" Style="width: 300px;" type="text" name="txtformacao" value="<%=nomeFormacao %>"><br>
         </div>
-        <select  name="txtformacao"><br>
+        <select  name="txttipoformacao"><br>
         <option value="<%=codFormacao %>"><%=tipoFormacao %></option>
         <%
             try{
                 st = new Conexao().conectar().createStatement();
                 rs = st.executeQuery("Select * from tbTipoFormacao");
                 while(rs.next()){
-                    if(rs.getString(3).equals(tipoFormacao)!=true){
-                        out.println("<option value="+rs.getString(2)+">"+rs.getString(3)+"</option>");
+                    if(rs.getString(2).equals(tipoFormacao)!=true){
+                        out.println("<option value="+rs.getString(1)+">"+rs.getString(2)+"</option>");
                     }
                 }
             }catch(Exception e){
@@ -90,9 +90,10 @@ ResultSet rs = null;
     if(request.getParameter("btnAtualizar")!=null){
         String id = request.getParameter("id");
         String formacao = request.getParameter("txtformacao");
+         String tipoformacao = request.getParameter("txttipoformacao");
         try{
             st = new Conexao().conectar().createStatement();
-            st.executeUpdate("Update tbformacao set Formacao='" + formacao + "'where codformacao='" + id + "'");
+            st.executeUpdate("Update tbformacao set nomeFormacao='" + formacao + "' , codFormacao = '"+tipoformacao +"' where codformacao='" + id + "'");
             out.println("<meta http-equiv='refresh' content='0;URL=listEsp.jsp'>");
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Formação atualizado com sucesso');");

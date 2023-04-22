@@ -150,12 +150,12 @@
                                             out.println("<tr>");
                                             while (rs.next()) {
                                                 out.println("<th scope='row'>" + rs.getString(1) + "</th>");
-                                                out.println("<th>" + rs.getString(2) + "</th>");
-                                                out.println("<th>" + rs.getString(3) + "</th>");
-                                                out.println("<th>" + rs.getString(4) + "</th>");
-                                                out.println("<th>" + rs.getString(5) + "</th>");
-                                                out.println("<th><a href='../Editar.Excluir/ediFormacaoProfessor.jsp?funcao=editar&id=" + rs.getString(1) + "' class='btn btn-primary'><i class='bi bi-pencil-fill'></i></a></th>");
-                                                out.println("<th><a href='../Editar.Excluir/ediFormacaoProfessor.jsp?funcao=excluir&id=" + rs.getString(1) + "' class='btn btn-danger'><i class='bi bi-x-lg'></i></a></th></tr>");
+                                                out.println("<td>" + rs.getString(2) + "</td>");
+                                                out.println("<td>" + rs.getString(3) + "</td>");
+                                                out.println("<td>" + rs.getString(4) + "</td>");
+                                                out.println("<td>" + rs.getString(5) + "</td>");
+                                                out.println("<td><a href='../Editar.Excluir/ediFormacaoProfessor.jsp?funcao=editar&id=" + rs.getString(1) + "' class='btn btn-primary'><i class='bi bi-pencil-fill'></i></a></td>");
+                                                out.println("<td><a href='../Editar.Excluir/ediFormacaoProfessor.jsp?funcao=excluir&id=" + rs.getString(1) + "' class='btn btn-danger'><i class='bi bi-x-lg'></i></a></td></tr>");
                                             }
                                         } catch (Exception e) {
                                             out.println(e);

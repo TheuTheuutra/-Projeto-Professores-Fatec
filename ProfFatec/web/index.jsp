@@ -71,7 +71,7 @@
                                             while (rs.next()) {
                                                 out.println("<td>" + rs.getString(2) + "</td>");
                                                 out.println("<td>" + rs.getString(3) + "</td>");
-                                                out.print("<td><a href='Editar.Excluir/ediFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "'><button class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button></a></tr>");
+                                                out.print("<td><a href='Editar.Excluir/ediFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "'><button class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button></a></td></tr>");
                                             }
                                         } catch (Exception e) {
                                             out.println(e);

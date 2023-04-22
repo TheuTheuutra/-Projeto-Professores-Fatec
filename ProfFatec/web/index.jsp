@@ -4,7 +4,17 @@
     Author     : mathe
 --%>
 
+<%@page import="javax.swing.JOptionPane"%>
+<%@page import="java.sql.*"%>
+<%@page import="com.mysql.jdbc.Driver"%>
+<%@page import="config.Conexao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    Statement st = null;
+    ResultSet rs = null;
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,31 +42,24 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Professor</th>
-                            <th scope="col">Formação</th>
+                            <th scope="col">Nome da Formação</th>
                             <th scope="col">Tipo de Formação</th>
-                            <th scope="col">Instituição</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                        <%
+                            try {
+                                st = new Conexao().conectar().createStatement();
+                                rs = st.executeQuery("select f.nomeFormacao, t.formacao from tbformacao f, tbtipoformacao t where f.codTipoFormacao = t.codTipoFormacao;");
+                                out.println("<tr>");
+                                while (rs.next()) {
+                                    out.println("<td>" + rs.getString(1) + "</td>");
+                                    out.println("<td>" + rs.getString(2) + "</td></tr>");
+                                }
+                            } catch (Exception e) {
+                                out.println(e);
+                            }
+                        %>
                     </tbody>
                 </table>
                 <a href="Cadastrar\cadFormacao.jsp" class="nav-link" href="#"><i class="bi bi-clipboard2-fill"></i> Cadastrar Formação</a>

@@ -93,7 +93,7 @@ ResultSet rs = null;
          String tipoformacao = request.getParameter("txttipoformacao");
         try{
             st = new Conexao().conectar().createStatement();
-            st.executeUpdate("Update tbformacao set nomeFormacao='" + formacao + "' , codFormacao = '"+tipoformacao +"' where codformacao='" + id + "'");
+            st.executeUpdate("Update tbformacao set nomeFormacao='" + formacao + "' , codTipoFormacao = '"+tipoformacao +"' where codformacao='" + id + "'");
             out.println("<meta http-equiv='refresh' content='0;URL=listEsp.jsp'>");
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Formação atualizado com sucesso');");

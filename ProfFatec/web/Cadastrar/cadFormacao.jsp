@@ -74,7 +74,7 @@
                                                         %>
                                                     </select>
                                                     <button type="submit" name="btnCadFormacao" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar</button>
-                                                    <a href='../index.jsp' class='btn btn-danger text-light'><i class='bi bi-x-circle-fill'></i>  Cancelar</a>
+                                                    <a href='./cadFormacao.jsp' class='btn btn-danger text-light'><i class='bi bi-x-circle-fill'></i>  Cancelar</a>
                                                 </div>
                                                 <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
                                                     <%
@@ -84,19 +84,19 @@
 
                                                             try {
                                                                 st = new Conexao().conectar().createStatement();
-                                                                rs = st.executeQuery("Select codFormacao, nomeFormacao, tbTipoFormacao.formacao from tbFormacao inner join tbTipoFormacao on tbFormacao.codTipoFormacao = tbTipoFormacao.codTipoFormacao where nomeFormacao like '%" + busca + "%'");
+                                                                rs = st.executeQuery("Select codFormacao, nomeFormacao, tbTipoFormacao.formacao from tbFormacao inner join tbTipoFormacao on tbFormacao.codTipoFormacao = tbTipoFormacao.codTipoFormacao where nomeFormacao like '%" + busca + "%' ORDER BY nomeFormacao ASC");
 
                                                                 out.println("<table class='table table-bordered border-primary' style='width:100%'>");
                                                                 out.println("<h5 class='card-title'>Busca de Formação</h5>");
-                                                                out.println("<thead><tr><th scope='col'>ID</th><th  scope='col'>Formação</th><th scope='col'>Tipo</th><th  scope='col'>Editar</th></tr></thead>");
+                                                                out.println("<thead><tr><th  scope='col'>Formação</th><th scope='col'>Tipo</th><th  scope='col'>Editar</th></tr></thead>");
                                                                 out.println("<tbody>");
                                                                 while (rs.next()) {
-                                                                    out.println("<tr><th  scope='row'>" + rs.getString(1) + "</th>");
                                                                     out.println("<td>" + rs.getString(2) + "</td>");
                                                                     out.println("<td>" + rs.getString(3) + "</td>");
                                                                     out.println("<td><a href='../Editar.Excluir/ediFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "' class='btn btn-primary'><i class='bi bi-pencil-fill'></i></a></td></tr>");
                                                                 }
                                                                 out.println("</tbody></table>");
+                                                                out.println("<a href='./cadFormacao.jsp' class='btn btn-danger text-light'><i class='bi bi-x-circle-fill'></i>  Cancelar Busca</a>");
                                                             } catch (Exception e) {
                                                                 out.println(e);
                                                             }
@@ -143,7 +143,7 @@
                                                 <%
                                                     try {
                                                         st = new Conexao().conectar().createStatement();
-                                                        rs = st.executeQuery("Select codFormacao, nomeFormacao, tbTipoFormacao.formacao from tbFormacao inner join tbTipoFormacao on tbFormacao.codTipoFormacao = tbTipoFormacao.codTipoFormacao ORDER BY codFormacao DESC;");
+                                                        rs = st.executeQuery("Select codFormacao, nomeFormacao, tbTipoFormacao.formacao from tbFormacao inner join tbTipoFormacao on tbFormacao.codTipoFormacao = tbTipoFormacao.codTipoFormacao ORDER BY nomeFormacao ASC;");
                                                         while (rs.next()) {
                                                             out.println("<tr><th scope='row'>" + rs.getString(1) + "</th>");
                                                             out.println("<td>" + rs.getString(2) + "</td>");

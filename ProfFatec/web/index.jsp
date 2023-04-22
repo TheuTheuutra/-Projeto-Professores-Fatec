@@ -44,10 +44,10 @@
                                     <a class="nav-link active">Formação</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./Cadastrar/cadTipoFormacao.jsp" class="nav-link">Tipo de Formação</a>
+                                    <a href="./tipoFormacao.jsp" class="nav-link">Tipo de Formação</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./Cadastrar/cadFormacaoProfessor.jsp" class="nav-link">Formação Professor</a>
+                                    <a href="./formacaoProfessor.jsp" class="nav-link">Formação Professor</a>
                                 </li>
                             </ul>
                         </div>

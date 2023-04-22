@@ -41,14 +41,12 @@
                                 <div class="row align-items-start">
                                     <div class="col">
                                         <form class="form-inline" action="" method="post" class="input-group input-group-sm mb-3">
-                                            <div class="row justify-content-start">
+                                            <div class="row">
 
-                                                <div class="col-4">
-                                                    <input type="text" placeholder="Digite o Tipo de Formação" name="txtNomeFormacao" class="form-control">
-                                                </div>
+                                                <div class="col-sm-5 col-md-6">
+                                                    <input type="text" placeholder="Digite o Tipo de Formação" name="txtNomeFormacao" class="form-control form-control-lg mb-3">
 
-                                                <div class="col-4">
-                                                    <select type="text" name="txtTipoFormacao" class="form-select">
+                                                    <select type="text" name="txtTipoFormacao" class="form-select form-select-lg mb-3">
                                                         <option>Escolha um Tipo de Formação</option>
                                                         <%
                                                             try {
@@ -62,12 +60,9 @@
                                                             }
                                                         %>
                                                     </select>
-                                                </div>
-
-                                                <div class="col-4">
                                                     <button type="submit" name="btnCadFormacao" class="btn btn-success"><i class="bi bi-plus-lg"></i> Cadastrar</button>
                                                 </div>
-
+                                                <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0"></div>
                                             </div>
                                         </form>
                                         <%

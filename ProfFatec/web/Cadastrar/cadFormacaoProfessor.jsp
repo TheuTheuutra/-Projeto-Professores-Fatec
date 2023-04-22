@@ -34,7 +34,7 @@
                     <a href="../index.jsp">Voltar para página Principal</a>
                     <br><br>
                     <div class="card border-secondary mb-3">
-                        <div class="card-header"> Cadastrar Curso Professores</div>
+                        <div class="card-header"> Cadastrar Formação Professores</div>
                         <div class="card-body text-secondary">
 
                             <div class="row">

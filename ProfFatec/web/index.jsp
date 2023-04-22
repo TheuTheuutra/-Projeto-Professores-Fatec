@@ -39,22 +39,25 @@
                 </ul>
             </div>
             <div class="card-body">
+                <a href="Cadastrar\cadFormacao.jsp" class="nav-link" href="#"><i class="bi bi-clipboard2-fill"></i> Cadastrar Formação</a>
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Nome da Formação</th>
                             <th scope="col">Tipo de Formação</th>
+                            <th scope="col">Eitar Formação</th>
                         </tr>
                     </thead>
                     <tbody>
                         <%
                             try {
                                 st = new Conexao().conectar().createStatement();
-                                rs = st.executeQuery("select f.nomeFormacao, t.formacao from tbformacao f, tbtipoformacao t where f.codTipoFormacao = t.codTipoFormacao;");
+                                rs = st.executeQuery("select f.codFormacao, f.nomeFormacao, t.formacao from tbformacao f, tbtipoformacao t where f.codTipoFormacao = t.codTipoFormacao;");
                                 out.println("<tr>");
                                 while (rs.next()) {
-                                    out.println("<td>" + rs.getString(1) + "</td>");
-                                    out.println("<td>" + rs.getString(2) + "</td></tr>");
+                                    out.println("<td>" + rs.getString(2) + "</td>");
+                                    out.println("<td>" + rs.getString(3) + "</td>");
+                                    out.print("<td><a href='Editar.Excluir/ediFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "'><button class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button></a></tr>");
                                 }
                             } catch (Exception e) {
                                 out.println(e);
@@ -62,8 +65,6 @@
                         %>
                     </tbody>
                 </table>
-                <a href="Cadastrar\cadFormacao.jsp" class="nav-link" href="#"><i class="bi bi-clipboard2-fill"></i> Cadastrar Formação</a>
-                <a href="Editar.Excluir\ediFormacao.jsp" class="nav-link" href="#"><i class="bi bi-pencil-fill"></i> Editar Formação</a>
             </div>
         </div>
     </body>

@@ -60,7 +60,7 @@
                                                             }
                                                         %>
                                                     </select>
-                                                    <button type="submit" name="btnCadFormacao" class="btn btn-success"><i class="bi bi-plus-lg"></i> Cadastrar</button>
+                                                    <button type="submit" name="btnCadFormacao" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar</button>
                                                 </div>
                                                 <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0"></div>
                                             </div>

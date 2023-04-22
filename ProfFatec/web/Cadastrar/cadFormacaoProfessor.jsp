@@ -98,7 +98,7 @@
                                             %>
                                         </select>
 
-                                        <button type="submit" name="btnCadCursoProfessor" class="btn btn-success"><i class="bi bi-plus-lg"></i> Cadastrar</button>
+                                        <button type="submit" name="btnCadCursoProfessor" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar</button>
 
                                     </form>
                                     <%

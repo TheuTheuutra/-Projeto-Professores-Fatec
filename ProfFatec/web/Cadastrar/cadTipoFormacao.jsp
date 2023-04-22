@@ -30,7 +30,7 @@
 
                 <div class="col">
 
-                    <div class="card border-secondary mb-3">
+                    <div class="card ">
                         <div class="card-header">
                             <ul class="nav nav-tabs card-header-tabs">
                                 <li class="nav-item">
@@ -44,20 +44,21 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="card-body text-secondary">
+                        <div class="card-body">
                             <div class="container text-center">
                                 <div class="row align-items-start">
                                     <div class="col">
                                         <form class="form-inline" action="" method="post" class="input-group input-group-sm mb-3">
 
 
-                                            <div class="row justify-content-start">
-                                                <div class="col-4">
-                                                    <input type="text" placeholder="Digite o Tipo de Formação" name="txtTipoFormacao" class="form-control">
+                                            <div class="row">
+
+                                                <div class="col-sm-5 col-md-6">
+                                                    <input type="text" placeholder="Digite o Tipo de Formação" name="txtTipoFormacao" class="form-control form-control-lg mb-3">
+
+                                                    <button type="submit" name="btnCadTipoFormacao" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar</button>
                                                 </div>
-                                                <div class="col-4">
-                                                    <button type="submit" name="btnCadTipoFormacao" class="btn btn-success"><i class="bi bi-plus-lg"></i> Cadastrar</button>
-                                                </div>
+                                                <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0"></div>
                                             </div>
                                         </form> 
                                         <%

@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col">
 
-                    <div class="card text-center">
+                    <div class="card">
                         <div class="card-header">
                             <ul class="nav nav-tabs card-header-tabs">
                                 <li class="nav-item">

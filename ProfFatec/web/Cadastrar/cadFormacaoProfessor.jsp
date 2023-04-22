@@ -30,11 +30,20 @@
             <div class="row">
 
                 <div class="col">
-
-                    <a href="../index.jsp">Voltar para página Principal</a>
-                    <br><br>
                     <div class="card border-secondary mb-3">
-                        <div class="card-header"> Cadastrar Formação Professores</div>
+                        <div class="card-header"> 
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item">
+                                    <a href="../index.jsp" class="nav-link">Formação</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../Cadastrar/cadTipoFormacao.jsp" class="nav-link">Tipo de Formação</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active">Formação Professor</a>
+                                </li>
+                            </ul>
+                        </div>
                         <div class="card-body text-secondary">
 
                             <div class="row">

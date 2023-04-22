@@ -30,11 +30,21 @@
 
                 <div class="col">
 
-                    <a href="../index.jsp">Voltar para página Principal</a>
-                    <br><br>
                     <div class="card border-secondary mb-3">
                         <div class="card-header">
-
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item">
+                                    <a href="../index.jsp" class="nav-link">Formação</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active">Tipo de Formação</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../Cadastrar/cadFormacaoProfessor.jsp" class="nav-link">Formação Professor</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body text-secondary">
                             <div class="container text-center">
                                 <div class="row align-items-start">
                                     <div class="col">
@@ -71,19 +81,13 @@
 
 
                                     </div>
-                                    <div class="col">
-                                        TIPO DE FORMAÇÃO
-                                    </div>
-                                    <div class="col">
-                                        [ Buscar Tipo de Formação ]
-                                    </div>
                                 </div>
+
+
                             </div>
 
 
-                        </div>
-                        <div class="card-body text-secondary">
-                            <h5 class="card-title">Aqui você encontra os tipos de formação cadastrado!</h5>
+                            <h5 class="card-title"></h5>
                             <p class="card-text"></p>
 
 

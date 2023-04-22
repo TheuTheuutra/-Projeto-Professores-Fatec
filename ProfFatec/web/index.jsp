@@ -24,48 +24,57 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     </head>
     <body>
-        <div class="card text-center">
-            <div class="card-header">
-                <ul class="nav nav-tabs card-header-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Formação</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="tipoFormacao.jsp" class="nav-link" href="#">Tipo de Formação</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="formacaoPorfessor.jsp" class="nav-link" href="#">Formação Professor</a>
-                    </li>
-                </ul>
+
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active">Formação</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./Cadastrar/cadTipoFormacao.jsp" class="nav-link">Tipo de Formação</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./Cadastrar/cadFormacaoProfessor.jsp" class="nav-link">Formação Professor</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <a href="Cadastrar\cadFormacao.jsp" class="nav-link" href="#"><i class="bi bi-clipboard2-fill"></i> Cadastrar Formação</a>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nome da Formação</th>
+                                        <th scope="col">Tipo de Formação</th>
+                                        <th scope="col">Eitar Formação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                        try {
+                                            st = new Conexao().conectar().createStatement();
+                                            rs = st.executeQuery("select f.codFormacao, f.nomeFormacao, t.formacao from tbformacao f, tbtipoformacao t where f.codTipoFormacao = t.codTipoFormacao;");
+                                            out.println("<tr>");
+                                            while (rs.next()) {
+                                                out.println("<td>" + rs.getString(2) + "</td>");
+                                                out.println("<td>" + rs.getString(3) + "</td>");
+                                                out.print("<td><a href='Editar.Excluir/ediFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "'><button class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button></a></tr>");
+                                            }
+                                        } catch (Exception e) {
+                                            out.println(e);
+                                        }
+                                    %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>    
             </div>
-            <div class="card-body">
-                <a href="Cadastrar\cadFormacao.jsp" class="nav-link" href="#"><i class="bi bi-clipboard2-fill"></i> Cadastrar Formação</a>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nome da Formação</th>
-                            <th scope="col">Tipo de Formação</th>
-                            <th scope="col">Eitar Formação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <%
-                            try {
-                                st = new Conexao().conectar().createStatement();
-                                rs = st.executeQuery("select f.codFormacao, f.nomeFormacao, t.formacao from tbformacao f, tbtipoformacao t where f.codTipoFormacao = t.codTipoFormacao;");
-                                out.println("<tr>");
-                                while (rs.next()) {
-                                    out.println("<td>" + rs.getString(2) + "</td>");
-                                    out.println("<td>" + rs.getString(3) + "</td>");
-                                    out.print("<td><a href='Editar.Excluir/ediFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "'><button class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button></a></tr>");
-                                }
-                            } catch (Exception e) {
-                                out.println(e);
-                            }
-                        %>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        </div><!-- comment -->
     </body>
 </html>

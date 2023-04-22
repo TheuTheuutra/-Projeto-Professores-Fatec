@@ -55,7 +55,7 @@
                                                                 st = new Conexao().conectar().createStatement();
                                                                 rs = st.executeQuery("Select * from tbtipoformacao");
                                                                 while (rs.next()) {
-                                                                    out.println("<option value=" + rs.getString(1) + ">" + rs.getString(2) + "</option>");
+                                                                    out.println("<option value='" + rs.getString(1) + "'>" + rs.getString(2) + "</option>");
                                                                 }
                                                             } catch (Exception e) {
                                                                 out.println(e);
@@ -112,10 +112,10 @@
                                                         out.println("<tr>");
                                                         while (rs.next()) {
                                                             out.println("<th scope='row'>" + rs.getString(1) + "</th>");
-                                                            out.println("<th scope='row'>" + rs.getString(2) + "</th>");
-                                                            out.println("<th scope='row'>" + rs.getString(3) + "</th>");
-                                                            out.println("<th scope='row'><a href='../Editar.Excluir/ediFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "' class='text-info'><i class='bi bi-pencil-square'></i></a></th>");
-                                                            out.println("<th scope='row'><a href='../Editar.Excluir/ediFormacao.jsp?funcao=excluir&id=" + rs.getString(1) + "' class='btn btn-danger'><i class='bi bi-x-lg'></i></a></th></tr>");
+                                                            out.println("<th>" + rs.getString(2) + "</th>");
+                                                            out.println("<th>" + rs.getString(3) + "</th>");
+                                                            out.println("<th><a href='../Editar.Excluir/ediFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "' class='text-info'><i class='bi bi-pencil-square'></i></a></th>");
+                                                            out.println("<th><a href='../Editar.Excluir/ediFormacao.jsp?funcao=excluir&id=" + rs.getString(1) + "' class='btn btn-danger'><i class='bi bi-x-lg'></i></a></th></tr>");
                                                         }
                                                     } catch (Exception e) {
                                                         out.println(e);

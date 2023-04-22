@@ -105,9 +105,9 @@
                                             out.println("<tr>");
                                             while (rs.next()) {
                                                 out.println("<th scope='row'>" + rs.getString(1) + "</th>");
-                                                out.println("<th scope='row'>" + rs.getString(2) + "</th>");
-                                                out.println("<th scope='row'><a href='../Editar.Excluir/ediTipoFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "' class='text-info'><i class='bi bi-pencil-square'></i></a></th>");
-                                                out.println("<th scope='row'><a href='../Editar.Excluir/ediTipoFormacao.jsp?funcao=excluir&id=" + rs.getString(1) + "' class='btn btn-danger'><i class='bi bi-x-lg'></i></a></th></tr>");
+                                                out.println("<th>" + rs.getString(2) + "</th>");
+                                                out.println("<th><a href='../Editar.Excluir/ediTipoFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "' class='text-info'><i class='bi bi-pencil-square'></i></a></th>");
+                                                out.println("<th><a href='../Editar.Excluir/ediTipoFormacao.jsp?funcao=excluir&id=" + rs.getString(1) + "' class='btn btn-danger'><i class='bi bi-x-lg'></i></a></th></tr>");
                                             }
                                         } catch (Exception e) {
                                             out.println(e);

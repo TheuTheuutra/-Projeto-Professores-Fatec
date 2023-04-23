@@ -127,36 +127,6 @@
                                             }
                                         %>
 
-                                        <hr>
-
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Nome</th>
-                                                    <th scope="col">Tipo</th>
-                                                    <th scope="col">Editar</th>
-                                                    <th scope="col">Excluir</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <%
-                                                    try {
-                                                        st = new Conexao().conectar().createStatement();
-                                                        rs = st.executeQuery("Select codFormacao, nomeFormacao, tbTipoFormacao.formacao from tbFormacao inner join tbTipoFormacao on tbFormacao.codTipoFormacao = tbTipoFormacao.codTipoFormacao ORDER BY nomeFormacao ASC;");
-                                                        while (rs.next()) {
-                                                            out.println("<tr><th scope='row'>" + rs.getString(1) + "</th>");
-                                                            out.println("<td>" + rs.getString(2) + "</td>");
-                                                            out.println("<td>" + rs.getString(3) + "</td>");
-                                                            out.println("<td><a href='../Editar.Excluir/ediFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "' class='btn btn-primary'><i class='bi bi-pencil-fill'></i></a></td>");
-                                                            out.println("<td><a href='../Editar.Excluir/ediFormacao.jsp?funcao=excluir&id=" + rs.getString(1) + "' class='btn btn-danger'><i class='bi bi-x-lg'></i></a></td></tr>");
-                                                        }
-                                                    } catch (Exception e) {
-                                                        out.println(e);
-                                                    }
-                                                %>
-                                            </tbody>
-                                        </table>
                                     </div>
                                 </div>
                             </div>

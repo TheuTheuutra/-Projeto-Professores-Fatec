@@ -120,37 +120,6 @@
                             <h5 class="card-title"></h5>
                             <p class="card-text"></p>
 
-
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Tipo da Formação</th>
-                                        <th scope="col">Editar</th>
-                                        <th scope="col">Excluir</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <%
-                                        try {
-                                            st = new Conexao().conectar().createStatement();
-                                            rs = st.executeQuery("Select * from tbtipoformacao order by codTipoFormacao desc");
-                                            out.println("<tr>");
-                                            while (rs.next()) {
-                                                out.println("<th scope='row'>" + rs.getString(1) + "</th>");
-                                                out.println("<td>" + rs.getString(2) + "</th>");
-                                                out.println("<td><a href='../Editar.Excluir/ediTipoFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "' class='btn btn-primary'><i class='bi bi-pencil-fill'></i></a></td>");
-                                                out.println("<td><a href='../Editar.Excluir/ediTipoFormacao.jsp?funcao=excluir&id=" + rs.getString(1) + "' class='btn btn-danger'><i class='bi bi-x-lg'></i></a></td></tr>");
-                                            }
-                                        } catch (Exception e) {
-                                            out.println(e);
-                                        }
-                                        
-                                    %>
-                                </tbody>
-                            </table>
-
                         </div>
                     </div>   
 

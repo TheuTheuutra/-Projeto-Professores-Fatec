@@ -136,7 +136,7 @@
 
                                                 out.println("<meta http-equiv='refresh' content='0;URL='../index.jsp'>");
                                                 out.println("<script type=\"text/javascript\">");
-                                                out.println("alert('Cadastro de FORMAÇÂO do PROFESSOR realizado com sucesso');");
+                                                out.println("alert('Cadastro de FORMAÇÂO realizado com sucesso');");
                                                 out.println("</script>");
                                             } catch (Exception e) {
 
@@ -174,45 +174,6 @@
 
                                 </div>
                             </div>
-
-                            <hr>
-
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Professor</th>
-                                        <th scope="col">Formação</th>
-                                        <th scope="col">Tipo de Formação</th>
-                                        <th scope="col">Instituição</th>
-                                        <th scope="col">Editar</th>
-                                        <th scope="col">Excluir</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <%
-                                        try {
-                                            st = new Conexao().conectar().createStatement();
-                                            rs = st.executeQuery("Select codFormacaoProfessor, tbprofessor.nomeProfessor, tbformacao.nomeFormacao, tbTipoFormacao.formacao, tbinstituicao.nomeInstituicao from tbFormacaoprofessor inner join tbformacao on tbFormacaoprofessor.codFormacao = tbformacao.codFormacao inner join tbTipoFormacao on tbFormacao.codTipoFormacao = tbTipoFormacao.codTipoFormacao inner join tbprofessor on tbprofessor.codProfessor = tbFormacaoprofessor.codProfessor inner join tbinstituicao on tbinstituicao.codInstituicao = tbFormacaoprofessor.codInstituicao order by codFormacaoProfessor desc;");
-                                            out.println("<tr>");
-                                            while (rs.next()) {
-                                                out.println("<th scope='row'>" + rs.getString(1) + "</th>");
-                                                out.println("<td>" + rs.getString(2) + "</td>");
-                                                out.println("<td>" + rs.getString(3) + "</td>");
-                                                out.println("<td>" + rs.getString(4) + "</td>");
-                                                out.println("<td>" + rs.getString(5) + "</td>");
-                                                out.println("<td><a href='../Editar.Excluir/ediFormacaoProfessor.jsp?funcao=editar&id=" + rs.getString(1) + "' class='btn btn-primary'><i class='bi bi-pencil-fill'></i></a></td>");
-                                                out.println("<td><a href='../Editar.Excluir/ediFormacaoProfessor.jsp?funcao=excluir&id=" + rs.getString(1) + "' class='btn btn-danger'><i class='bi bi-x-lg'></i></a></td></tr>");
-                                            }
-                                        } catch (Exception e) {
-                                            out.println(e);
-                                        }
-                                    %>
-
-                                </tbody>
-                            </table>
-
                         </div>
                     </div>
                 </div>

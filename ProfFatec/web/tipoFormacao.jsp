@@ -23,9 +23,6 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     </head>
     <body>   
-
-
-
         <div class="container text-center">
             <div class="row">
                 <div class="col">
@@ -47,13 +44,38 @@
                             <div style="text-align: left">
                                 <a href="Cadastrar\cadTipoFormacao.jsp" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar Tipo Formação</a>
                             </div>
-                            <a href="Editar.Excluir\ediTipoFormacao.jsp" class="nav-link" href="#"><i class="bi bi-pencil-fill"></i> Editar Tipo Formação</a>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Formação</th>
+                                        <th scope="col">Editar</th>
+                                        <th scope="col">Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                        try {
+                                            st = new Conexao().conectar().createStatement();
+                                            rs = st.executeQuery("select * from tbtipoformacao;;");
+                                            out.println("<tr>");
+                                            while (rs.next()) {
+                                                out.println("<td>" + rs.getString(1) + "</td>");
+                                                out.println("<td>" + rs.getString(2) + "</td>");
+                                                out.println("<td><a href='./Editar.Excluir/ediTipoFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "' class='btn btn-primary'><i class='bi bi-pencil-fill'></i></a></td>");
+                                                out.println("<td><a href='./Editar.Excluir/ediTipoFormacao.jsp?funcao=excluir&id=" + rs.getString(1) + "' class='btn btn-danger'><i class='bi bi-x-lg'></i></a></td></tr>");
+                                            }
+                                        } catch (Exception e) {
+                                            out.println(e);
+                                        }
+                                    %>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </body>
 </html>
 

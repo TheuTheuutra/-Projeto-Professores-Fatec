@@ -24,40 +24,14 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script>
-            const urlParams = new URLSearchParams(window.location.search);
-            document.onreadystatechange = () => {
-                if (document.readyState == 'complete') {
-                    if (urlParams.get('id') != null) {
-                        $("#exampleModal").modal({
-                            show: true
-                        })
-                    }
-                    ;
-                }
-                ;
-            };
-        </script>
-
+        <script>  const urlParams = new URLSearchParams(window.location.search); document.onreadystatechange = () => { if (document.readyState == 'complete') { if (urlParams.get('id') != null) {$("#modalExemplo").modal({show: true})};};};;</script>
     </head>
     <body>
-
-
-
-
-
-
-
-
         <div class="container text-center">
             <div class="row">
-
                 <div class="col">
-
                     <div class="card ">
                         <div class="card-header">
-
-
                             <ul class="nav nav-tabs card-header-tabs">
                                 <li class="nav-item">
                                     <a class="nav-link active">Formação do Professor</a>
@@ -69,17 +43,12 @@
                                     <a href="./formacao.jsp" class="nav-link">Formação</a>
                                 </li>
                             </ul>
-
                         </div>
                         <div class="card-body">
-
-
                             <div class="row">
                                 <div class="col-sm-5 col-md-6" style="text-align: left">
                                     <a href="./Cadastrar\cadFormacaoProfessor.jsp" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar Formação</a>
-
                                 </div>
-
                                 <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
                                     <form class="form-inline text-center" method="post">
 
@@ -102,20 +71,9 @@
                                             </select>
                                             <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-secondary" type="button" name="btnBuscaFormacaoProfessor" id="button-addon2"><i class="bi bi-search"></i></button>
                                         </div>
-
-
                                     </form>
-
-
-
                                 </div>
-
                             </div>
-
-
-
-
-
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -129,7 +87,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <%
                                         try {
                                             st = new Conexao().conectar().createStatement();
@@ -148,25 +105,13 @@
                                             out.println(e);
                                         }
                                     %>
-
                                 </tbody>
                             </table>
                         </div>
-                    </div>   
-
+                    </div>
                 </div>
-
             </div>
         </div>
-
-
-
-
-
-
-
-
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -182,7 +127,7 @@
                                 String busca = request.getParameter("txtBuscaFormacaoProfessor");
                                 try {
                                     st = new Conexao().conectar().createStatement();
-                                    rs = st.executeQuery("Select tbprofessor.nomeProfessor, tbformacao.nomeFormacao, tbTipoFormacao.formacao, tbinstituicao.nomeInstituicao from tbFormacaoprofessor inner join tbformacao on tbFormacaoprofessor.codFormacao = tbformacao.codFormacao inner join tbTipoFormacao on tbFormacao.codTipoFormacao = tbTipoFormacao.codTipoFormacao inner join tbprofessor on tbprofessor.codProfessor = tbFormacaoprofessor.codProfessor inner join tbinstituicao on tbinstituicao.codInstituicao = tbFormacaoprofessor.codInstituicao where tbprofessor.nomeProfessor like '%" + busca + "%' ORDER BY nomeFormacao ASC");
+                                    rs = st.executeQuery("Select tbprofessor.nomeProfessor, tbformacao.nomeFormacao, tbTipoFormacao.formacao, tbinstituicao.nomeInstituicao from tbFormacaoprofessor inner join tbformacao on tbFormacaoprofessor.codFormacao = tbformacao.codFormacao inner join tbTipoFormacao on tbFormacao.codTipoFormacao = tbTipoFormacao.codTipoFormacao inner join tbprofessor on tbprofessor.codProfessor = tbFormacaoprofessor.codProfessor inner join tbinstituicao on tbinstituicao.codInstituicao = tbFormacaoprofessor.codInstituicao where tbprofessor.nomeProfessor like '%" + busca + "%'");
 
                                     out.println("<table class='table table-bordered border-primary' style='width:100%'>");
                                     out.println("<h6 class='card-title'>Formação(ões) do(a) Professor(a) " + busca + "</h6>");
@@ -209,9 +154,5 @@
                 </div>
             </div>
         </div>                           
-
-
-
-
     </body>
 </html>

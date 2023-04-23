@@ -41,13 +41,13 @@
                         <div class="card-header">
                             <ul class="nav nav-tabs card-header-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link active">Formação do Professor</a>
+                                    <a class="nav-link" href="./index.jsp">Formação Professor</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="./tipoFormacao.jsp" class="nav-link">Tipo de Formação</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./formacao.jsp" class="nav-link">Formação</a>
+                                    <a class="nav-link active">Formação</a>
                                 </li>
                             </ul>
                         </div>
@@ -58,36 +58,26 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Professor</th>
-                                        <th scope="col">Formação</th>
+                                        <th scope="col">Nome da Formação</th>
                                         <th scope="col">Tipo de Formação</th>
-                                        <th scope="col">Instituição</th>
-                                        <th scope="col">Editar</th>
-                                        <th scope="col">Excluir</th>
+                                        <th scope="col">Eitar Formação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <%
                                         try {
                                             st = new Conexao().conectar().createStatement();
-                                            rs = st.executeQuery("Select codFormacaoProfessor, tbprofessor.nomeProfessor, tbformacao.nomeFormacao, tbTipoFormacao.formacao, tbinstituicao.nomeInstituicao from tbFormacaoprofessor inner join tbformacao on tbFormacaoprofessor.codFormacao = tbformacao.codFormacao inner join tbTipoFormacao on tbFormacao.codTipoFormacao = tbTipoFormacao.codTipoFormacao inner join tbprofessor on tbprofessor.codProfessor = tbFormacaoprofessor.codProfessor inner join tbinstituicao on tbinstituicao.codInstituicao = tbFormacaoprofessor.codInstituicao;");
+                                            rs = st.executeQuery("select f.codFormacao, f.nomeFormacao, t.formacao from tbformacao f, tbtipoformacao t where f.codTipoFormacao = t.codTipoFormacao;");
                                             out.println("<tr>");
                                             while (rs.next()) {
-                                                out.println("<th scope='row'>" + rs.getString(1) + "</th>");
                                                 out.println("<td>" + rs.getString(2) + "</td>");
                                                 out.println("<td>" + rs.getString(3) + "</td>");
-                                                out.println("<td>" + rs.getString(4) + "</td>");
-                                                out.println("<td>" + rs.getString(5) + "</td>");
-                                                out.println("<td><a href='./Editar.Excluir/ediFormacaoProfessor.jsp?funcao=editar&id=" + rs.getString(1) + "' class='btn btn-primary'><i class='bi bi-pencil-fill'></i></a></td>");
-                                                out.println("<td><a href='./Editar.Excluir/ediFormacaoProfessor.jsp?funcao=excluir&id=" + rs.getString(1) + "' class='btn btn-danger'><i class='bi bi-x-lg'></i></a></td></tr>");
+                                                out.print("<td><a href='Editar.Excluir/ediFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "'><button class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button></a></td></tr>");
                                             }
                                         } catch (Exception e) {
                                             out.println(e);
                                         }
                                     %>
-
                                 </tbody>
                             </table>
                         </div>

@@ -33,13 +33,13 @@
                         <div class="card-header">
                             <ul class="nav nav-tabs card-header-tabs">
                                 <li class="nav-item">
-                                    <a href="index.jsp" class="nav-link" href="#">Formação</a>
+                                    <a href="index.jsp" class="nav-link" href="#">Formação do Professor</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#">Tipo de Formação</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="formacaoPorfessor.jsp" class="nav-link" href="#">Formação Professor</a>
+                                    <a href="formacao.jsp" class="nav-link" href="#">Formação</a>
                                 </li>
                             </ul>
                         </div>

@@ -47,7 +47,7 @@
                                     <a href="./tipoFormacao.jsp" class="nav-link">Tipo de Formação</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./formacaoProfessor.jsp" class="nav-link">Formação Professor</a>
+                                    <a href="./formacaoPorfessor.jsp" class="nav-link">Formação Professor</a>
                                 </li>
                             </ul>
                         </div>

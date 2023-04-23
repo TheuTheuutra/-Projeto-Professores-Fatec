@@ -46,7 +46,9 @@
                             </ul>
                         </div>
                         <div class="card-body">
-                            <a href="Cadastrar\cadFormacaoProfessor.jsp" class="nav-link" href="#"><i class="bi bi-clipboard2-fill"></i> Cadastrar Formação Professor</a>
+                            <div style="text-align: left">
+                                <a href="Cadastrar\cadFormacaoProfessor.jsp" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar Formação Professor</a>
+                            </div>
                             <a href="Editar.Excluir\ediFormacaoProfessor.jsp" class="nav-link" href="#"><i class="bi bi-pencil-fill"></i> Editar Formação Professor</a>
                         </div>
                     </div>

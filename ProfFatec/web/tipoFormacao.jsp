@@ -23,9 +23,9 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     </head>
     <body>   
-        
-        
-              
+
+
+
         <div class="container text-center">
             <div class="row">
                 <div class="col">
@@ -44,7 +44,9 @@
                             </ul>
                         </div>
                         <div class="card-body">
-                            <a href="Cadastrar\cadTipoFormacao.jsp" class="nav-link" href="#"><i class="bi bi-clipboard2-fill"></i> Cadastrar Tipo Formação</a>
+                            <div style="text-align: left">
+                                <a href="Cadastrar\cadTipoFormacao.jsp" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar Tipo Formação</a>
+                            </div>
                             <a href="Editar.Excluir\ediTipoFormacao.jsp" class="nav-link" href="#"><i class="bi bi-pencil-fill"></i> Editar Tipo Formação</a>
                         </div>
                     </div>

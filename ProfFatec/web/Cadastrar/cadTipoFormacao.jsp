@@ -29,36 +29,65 @@
             <div class="row">
 
                 <div class="col">
-
+                    <a href="../tipoFormacao.jsp" class="btn btn-outline-dark"><i class="bi bi-arrow-left-circle-fill"></i>  Voltar para página Principal</a>
+                    <br><br>
                     <div class="card ">
                         <div class="card-header">
-                            <ul class="nav nav-tabs card-header-tabs">
-                                <li class="nav-item">
-                                    <a href="../index.jsp" class="nav-link">Formação</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active">Tipo de Formação</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../Cadastrar/cadFormacaoProfessor.jsp" class="nav-link">Formação Professor</a>
-                                </li>
-                            </ul>
+
+                            <div class="row">
+                                <div class="col-sm-5 col-md-6" style="text-align:left">Cadastrar Tipo Formação</div>
+
+                                <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                                    <form class="form-inline text-center" method="post" action="">
+
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Digite o tipo de Formação" name="txtBuscaTipoFormacao" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                            <button class="btn btn-outline-secondary" type="submit" name="btnBuscaTipoFormacao" id="button-addon2"><i class="bi bi-search"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="card-body">
                             <div class="container text-center">
                                 <div class="row align-items-start">
                                     <div class="col">
                                         <form class="form-inline" action="" method="post" class="input-group input-group-sm mb-3">
-
-
                                             <div class="row">
-
                                                 <div class="col-sm-5 col-md-6">
                                                     <input type="text" placeholder="Digite o Tipo de Formação" name="txtTipoFormacao" class="form-control form-control-lg mb-3">
 
                                                     <button type="submit" name="btnCadTipoFormacao" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar</button>
+                                                    <a href='./cadTipoFormacao.jsp' class='btn btn-danger text-light'><i class='bi bi-x-circle-fill'></i>  Cancelar</a>
                                                 </div>
-                                                <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0"></div>
+                                                <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                                                    <%
+                                                        // ------------------ BUSCAR TIPO FORMAÇÃO ------------------------
+                                                        if (request.getParameter("btnBuscaTipoFormacao") != null) {
+                                                            String busca = request.getParameter("txtBuscaTipoFormacao");
+
+                                                            try {
+                                                                st = new Conexao().conectar().createStatement();
+                                                                rs = st.executeQuery("Select * from tbTipoFormacao where formacao like '%" + busca + "%' ORDER BY formacao ASC");
+
+                                                                out.println("<table class='table table-bordered border-primary' style='width:100%'>");
+                                                                out.println("<h5 class='card-title'>Busca de Formação</h5>");
+                                                                out.println("<thead><tr><th  scope='col'>Tipo de Formação</th><th  scope='col'>Editar</th></tr></thead>");
+                                                                out.println("<tbody>");
+                                                                while (rs.next()) {
+                                                                    out.println("<td>" + rs.getString(2) + "</td>");
+                                                                    out.println("<td><a href='../Editar.Excluir/ediTipoFormacao.jsp?funcao=editar&id=" + rs.getString(1) + "' class='btn btn-primary'><i class='bi bi-pencil-fill'></i></a></td></tr>");
+                                                                }
+                                                                out.println("</tbody></table>");
+                                                                out.println("<a href='./cadTipoFormacao.jsp' class='btn btn-danger text-light'><i class='bi bi-x-circle-fill'></i>  Cancelar Busca</a>");
+                                                            } catch (Exception e) {
+                                                                out.println(e);
+                                                            }
+                                                        }
+                                                    %>
+
+                                                </div>
                                             </div>
                                         </form> 
                                         <%
@@ -106,7 +135,7 @@
                                     <%
                                         try {
                                             st = new Conexao().conectar().createStatement();
-                                            rs = st.executeQuery("Select * from tbtipoformacao");
+                                            rs = st.executeQuery("Select * from tbtipoformacao order by codTipoFormacao desc");
                                             out.println("<tr>");
                                             while (rs.next()) {
                                                 out.println("<th scope='row'>" + rs.getString(1) + "</th>");

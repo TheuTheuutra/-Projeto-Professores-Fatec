@@ -48,7 +48,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Formação</th>
+                                        <th scope="col">Tipo de Formação</th>
                                         <th scope="col">Editar</th>
                                         <th scope="col">Excluir</th>
                                     </tr>

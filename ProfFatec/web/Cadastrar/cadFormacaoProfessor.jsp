@@ -156,7 +156,7 @@
 
                                                 out.println("<table class='table table-bordered border-primary' style='width:100%'>");
                                                 out.println("<h6 class='card-title'>Formação(ões) do(a) Professor(a) " + busca + "</h6>");
-                                                out.println("<thead><tr><th  scope='col'>Formação</th><th scope='col'>Tipo</th><th  scope='col'>Editar</th></tr></thead>");
+                                                out.println("<thead><tr><th  scope='col'>Formação</th><th scope='col'>Tipo</th><th scope='col'>Instituição</th><th  scope='col'>Editar</th></tr></thead>");
                                                 out.println("<tbody>");
                                                 while (rs.next()) {
                                                     out.println("<td>" + rs.getString(2) + "</td>");

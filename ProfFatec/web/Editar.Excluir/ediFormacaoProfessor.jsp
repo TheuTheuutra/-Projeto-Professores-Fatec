@@ -60,7 +60,7 @@
                                 String id = request.getParameter("id");
                                 st = new Conexao().conectar().createStatement();
                                 st.executeUpdate("Delete from tbformacaoprofessor where codFormacaoProfessor='" + id + "'");
-                                out.println("<meta http-equiv='refresh' content='0;URL=../Cadastrar/cadFormacaoProfessor.jsp'>");
+                                out.println("<meta http-equiv='refresh' content='0;URL=../formacaoProfessor.jsp'>");
                                 out.println("<script type=\"text/javascript\">");
                                 out.println("alert('Formação do professor excluída com sucesso');");
                             } catch (Exception e) {

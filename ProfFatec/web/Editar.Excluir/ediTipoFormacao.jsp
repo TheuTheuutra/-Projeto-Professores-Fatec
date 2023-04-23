@@ -54,14 +54,14 @@
                                 String id = request.getParameter("id");
                                 st = new Conexao().conectar().createStatement();
                                 st.executeUpdate("Delete from tbtipoformacao where codTipoFormacao='" + id + "'");
-                                out.println("<meta http-equiv='refresh' content='0;URL=../Cadastrar/cadTipoFormacao.jsp'>");
+                                out.println("<meta http-equiv='refresh' content='0;URL=../tipoFormacao.jsp'>");
                                 out.println("<script type=\"text/javascript\">");
                                 out.println("alert('Tipo de formação excluído com sucesso');");
                             } catch (Exception e) {
                                 out.println("<script type=\"text/javascript\">");
                                 out.println("alert('Não é possivel excluir tipo de formação, tente excluir uma formação ligada a seu esse tipo e tente novamente.');");
                                 out.println("</script>");
-                                out.println("<meta http-equiv='refresh' content='0;URL=../Cadastrar/cadTipoFormacao.jsp'>");
+                                out.println("<meta http-equiv='refresh' content='0;URL=../tipoFormacao.jsp'>");
 
                             }
                         }

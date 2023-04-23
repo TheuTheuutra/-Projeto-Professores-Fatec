@@ -42,7 +42,7 @@
                                     <form class="form-inline text-center" method="post" action="">
 
                                         <div class="input-group mb-3">
-                                            <select type="text" class="form-select" placeholder="Digite a Formação" name="txtBuscaFormacaoProfessor" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                                            <select type="text" class="form-select" name="txtBuscaFormacaoProfessor" aria-label="Recipient's username" aria-describedby="button-addon2" required>
                                                 <option>Selecione o Professor</option>
                                                 <%
                                                     try {
@@ -50,7 +50,7 @@
                                                         rs = st.executeQuery("SELECT * from tbprofessor");
                                                         while (rs.next()) {
                                                             if (rs.getString(5).equals("1")) {
-                                                                out.println("<option value='" + rs.getString(1) + "'>" + rs.getString(2) + "</option>");
+                                                                out.println("<option value='" + rs.getString(2) + "'>" + rs.getString(2) + "</option>");
                                                             }
                                                         }
                                                     } catch (Exception e) {
@@ -150,23 +150,22 @@
                                         // ------------------ BUSCAR FORMAÇÃO DO PROFESSOR ------------------------
                                         if (request.getParameter("btnBuscaFormacaoProfessor") != null) {
                                             String busca = request.getParameter("txtBuscaFormacaoProfessor");
-
                                             try {
                                                 st = new Conexao().conectar().createStatement();
-                                                rs = st.executeQuery("Select tbformacao.nomeFormacao, tbTipoFormacao.formacao, tbinstituicao.nomeInstituicao from tbFormacaoprofessor inner join tbformacao on tbFormacaoprofessor.codFormacao = tbformacao.codFormacao inner join tbTipoFormacao on tbFormacao.codTipoFormacao = tbTipoFormacao.codTipoFormacao inner join tbprofessor on tbprofessor.codProfessor = tbFormacaoprofessor.codProfessor inner join tbinstituicao on tbinstituicao.codInstituicao = tbFormacaoprofessor.codInstituicao where tbprofessor.codProfessor like '%" + busca + "%' ORDER BY nomeFormacao ASC");
+                                                rs = st.executeQuery("Select tbprofessor.nomeProfessor, tbformacao.nomeFormacao, tbTipoFormacao.formacao, tbinstituicao.nomeInstituicao from tbFormacaoprofessor inner join tbformacao on tbFormacaoprofessor.codFormacao = tbformacao.codFormacao inner join tbTipoFormacao on tbFormacao.codTipoFormacao = tbTipoFormacao.codTipoFormacao inner join tbprofessor on tbprofessor.codProfessor = tbFormacaoprofessor.codProfessor inner join tbinstituicao on tbinstituicao.codInstituicao = tbFormacaoprofessor.codInstituicao where tbprofessor.nomeProfessor like '%" + busca + "%' ORDER BY nomeFormacao ASC");
 
                                                 out.println("<table class='table table-bordered border-primary' style='width:100%'>");
-                                                out.println("<h5 class='card-title'>Busca de Formação</h5>");
+                                                out.println("<h6 class='card-title'>Formação(ões) do(a) Professor(a) " + busca + "</h6>");
                                                 out.println("<thead><tr><th  scope='col'>Formação</th><th scope='col'>Tipo</th><th  scope='col'>Editar</th></tr></thead>");
                                                 out.println("<tbody>");
                                                 while (rs.next()) {
-                                                    out.println("<td>" + rs.getString(1) + "</td>");
                                                     out.println("<td>" + rs.getString(2) + "</td>");
                                                     out.println("<td>" + rs.getString(3) + "</td>");
+                                                    out.println("<td>" + rs.getString(4) + "</td>");
                                                     out.println("<td><a href='../Editar.Excluir/ediFormacaoProfessor.jsp?funcao=editar&id=" + rs.getString(1) + "' class='btn btn-primary'><i class='bi bi-pencil-fill'></i></a></td></tr>");
                                                 }
                                                 out.println("</tbody></table>");
-                                                out.println("<a href='./cadFormacao.jsp' class='btn btn-danger text-light'><i class='bi bi-x-circle-fill'></i>  Cancelar Busca</a>");
+                                                out.println("<a href='./cadFormacaoProfessor.jsp' class='btn btn-danger text-light'><i class='bi bi-x-circle-fill'></i>  Cancelar Busca</a>");
                                             } catch (Exception e) {
                                                 out.println(e);
                                             }

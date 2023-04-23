@@ -52,8 +52,9 @@
                             </ul>
                         </div>
                         <div class="card-body">
-
-                            <a href="Cadastrar\cadFormacao.jsp" class="nav-link" href="#"><i class="bi bi-clipboard2-fill"></i> Cadastrar Formação</a>
+                            <div style="text-align: left">
+                                <a href="./Cadastrar\cadFormacao.jsp" class="btn btn-success"><i class="bi bi-clipboard2-fill"></i> Cadastrar Formação</a>
+                            </div>
                             <table class="table">
                                 <thead>
                                     <tr>

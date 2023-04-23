@@ -95,7 +95,7 @@
                                             </select>
                                             <div class="form-group text-center">
                                                 <input class="btn btn-success" type="submit" name="btnAtualizar" value="Atualizar">
-                                                <a href='../index.jsp' class='btn btn-danger text-light'><i class='bi bi-x-circle-fill'></i>  Cancelar</a>
+                                                <a href='../formacao.jsp' class='btn btn-danger text-light'><i class='bi bi-x-circle-fill'></i>  Cancelar</a>
                                             </div>
                                         </form>
 

@@ -30,7 +30,7 @@
             <div class="row">
 
                 <div class="col">
-                    <a href="../formacaoPorfessor.jsp" class="btn btn-outline-dark"><i class="bi bi-arrow-left-circle-fill"></i>  Voltar para página Principal</a>
+                    <a href="../index.jsp" class="btn btn-outline-dark"><i class="bi bi-arrow-left-circle-fill"></i>  Voltar para página Principal</a>
                     <br><br>
                     <div class="card border-secondary mb-3">
                         <div class="card-header"> 

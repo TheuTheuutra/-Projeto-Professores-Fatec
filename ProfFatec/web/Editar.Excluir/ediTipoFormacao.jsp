@@ -48,6 +48,22 @@
                             } catch (Exception e) {
                                 out.println(e);
                             }
+                        } else if (request.getParameter("funcao") != null && request.getParameter("funcao").equals("excluir")) {
+
+                            try {
+                                String id = request.getParameter("id");
+                                st = new Conexao().conectar().createStatement();
+                                st.executeUpdate("Delete from tbtipoformacao where codTipoFormacao='" + id + "'");
+                                out.println("<meta http-equiv='refresh' content='0;URL=../Cadastrar/cadTipoFormacao.jsp'>");
+                                out.println("<script type=\"text/javascript\">");
+                                out.println("alert('Tipo de formação excluído com sucesso');");
+                            } catch (Exception e) {
+                                out.println("<script type=\"text/javascript\">");
+                                out.println("alert('Não é possivel excluir tipo de formação, tente excluir uma formação ligada a seu esse tipo e tente novamente.');");
+                                out.println("</script>");
+                                out.println("<meta http-equiv='refresh' content='0;URL=../Cadastrar/cadTipoFormacao.jsp'>");
+
+                            }
                         }
                     %>
 
@@ -57,14 +73,7 @@
                         <div class="form-group text-center">
                             <label class="text-dark">Tipo de formação novo:</label><br>
                             <input class="form-control mx-auto" Style="width: 300px;" type="text" name="txtformacao" value="<%=Formacao%>"><br>
-
                         </div>
-
-
-
-
-
-
                         <br>
                         <div class="form-group text-center">
                             <input class="form-control mx-auto" Style="width: 300px;" type="submit" name="btnAtualizar" value="Atualizar">
@@ -100,4 +109,6 @@
             out.println(e);
         }
     }
+
+
 %>

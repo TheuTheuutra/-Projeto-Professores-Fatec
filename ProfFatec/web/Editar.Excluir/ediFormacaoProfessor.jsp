@@ -54,6 +54,18 @@
                             } catch (Exception e) {
                                 out.println(e);
                             }
+                        } else if (request.getParameter("funcao") != null && request.getParameter("funcao").equals("excluir")) {
+
+                            try {
+                                String id = request.getParameter("id");
+                                st = new Conexao().conectar().createStatement();
+                                st.executeUpdate("Delete from tbformacaoprofessor where codFormacaoProfessor='" + id + "'");
+                                out.println("<meta http-equiv='refresh' content='0;URL=../Cadastrar/cadFormacaoProfessor.jsp'>");
+                                out.println("<script type=\"text/javascript\">");
+                                out.println("alert('Formação do professor excluída com sucesso');");
+                            } catch (Exception e) {
+                                out.println(e);
+                            }
                         }
                     %>
 
@@ -150,5 +162,5 @@
         } catch (Exception e) {
             out.println(e);
         }
-    }
+    } 
 %>

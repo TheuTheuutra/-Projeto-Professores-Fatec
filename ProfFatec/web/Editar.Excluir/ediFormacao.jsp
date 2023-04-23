@@ -52,6 +52,22 @@
                                                 } catch (Exception e) {
                                                     out.println(e);
                                                 }
+                                            } else if (request.getParameter("funcao") != null && request.getParameter("funcao").equals("excluir")) {
+
+                                                try {
+                                                    String id = request.getParameter("id");
+                                                    st = new Conexao().conectar().createStatement();
+                                                    st.executeUpdate("Delete from tbformacao where codFormacao='" + id + "'");
+                                                    out.println("<meta http-equiv='refresh' content='0;URL=../Cadastrar/cadFormacao.jsp'>");
+                                                    out.println("<script type=\"text/javascript\">");
+                                                    out.println("alert('Tipo de formação excluído com sucesso');");
+                                                } catch (Exception e) {
+                                                    out.println("<script type=\"text/javascript\">");
+                                                    out.println("alert('Não é possivel excluir formação, tente excluir uma formação do professor ligada a essa formação e tente novamente.');");
+                                                    out.println("</script>");
+                                                    out.println("<meta http-equiv='refresh' content='0;URL=../Cadastrar/cadFormacao.jsp'>");
+
+                                                }
                                             }
                                         %>
 

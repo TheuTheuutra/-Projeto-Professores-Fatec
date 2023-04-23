@@ -134,7 +134,7 @@
 
                                                 st.executeUpdate("insert into tbformacaoprofessor(codProfessor, codFormacao, codInstituicao) values('" + codProfessor + "', '" + codFormacao + "', '" + codInstituicao + "')");
 
-                                                out.println("<meta http-equiv='refresh' content='0;URL='./Cadastrar/cadFormacaoProfessor.jsp'>");
+                                                out.println("<meta http-equiv='refresh' content='0;URL='../index.jsp'>");
                                                 out.println("<script type=\"text/javascript\">");
                                                 out.println("alert('Cadastro de FORMAÇÂO do PROFESSOR realizado com sucesso');");
                                                 out.println("</script>");

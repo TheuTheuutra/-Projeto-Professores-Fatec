@@ -94,9 +94,9 @@
                                             <%
                                                 try {
                                                     st = new Conexao().conectar().createStatement();
-                                                    rs = st.executeQuery("SELECT * from tbformacao");
+                                                    rs = st.executeQuery("Select f.codFormacao, f.nomeFormacao, t.formacao from tbformacao f,tbtipoformacao t where f.codTipoFormacao = t.codTipoFormacao");
                                                     while (rs.next()) {
-                                                        out.println("<option value='" + rs.getString(1) + "'>" + rs.getString(2) + "</option>");
+                                                        out.println("<option value='" + rs.getString(1) + "'>" + rs.getString(3) + " em " + rs.getString(2) + "</option>");
                                                     }
                                                 } catch (Exception e) {
                                                     out.println(e);
